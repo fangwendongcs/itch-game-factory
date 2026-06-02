@@ -1,0 +1,269 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #080b12;
+  color: #ece6d8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    linear-gradient(rgba(3, 6, 10, 0.78), rgba(3, 6, 10, 0.94)),
+    repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255, 255, 255, 0.025) 4px),
+    radial-gradient(circle at top, #293036, #080b12 64%);
+}
+
+.game-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 42px 0;
+}
+
+.game-header,
+.panel-heading,
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  color: #f2ead9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 9vw, 6rem);
+  font-weight: 500;
+  letter-spacing: -0.08em;
+  line-height: 0.98;
+}
+
+h2 {
+  font-size: 1.08rem;
+  letter-spacing: 0.08em;
+}
+
+.subtitle,
+.memo-note,
+.panel-heading,
+.empty-card {
+  color: #a69f91;
+}
+
+.subtitle {
+  margin-bottom: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.36em;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: #bf9b5d;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.shift-clock {
+  min-width: 112px;
+  padding: 12px 15px;
+  border: 1px solid rgba(191, 155, 93, 0.38);
+  color: #bf9b5d;
+  text-align: center;
+}
+
+.shift-clock span,
+.shift-clock strong {
+  display: block;
+}
+
+.shift-clock span {
+  font-size: 0.66rem;
+  letter-spacing: 0.26em;
+}
+
+.shift-clock strong {
+  margin-top: 4px;
+  font-family: "Courier New", monospace;
+  font-size: 1.25rem;
+}
+
+.desk-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.6fr);
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.panel {
+  border: 1px solid rgba(220, 202, 169, 0.15);
+  background: rgba(14, 17, 22, 0.88);
+  box-shadow: 0 20px 90px rgba(0, 0, 0, 0.32);
+}
+
+.memo-panel,
+.guest-panel,
+.ending-panel {
+  padding: 22px;
+}
+
+.memo-panel {
+  background:
+    linear-gradient(rgba(20, 22, 23, 0.91), rgba(13, 16, 20, 0.94)),
+    #11151b;
+}
+
+.memo-panel li {
+  margin-bottom: 15px;
+  padding-left: 3px;
+  color: #d4c8b5;
+  line-height: 1.55;
+}
+
+.memo-note {
+  margin: 22px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(220, 202, 169, 0.12);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.panel-heading {
+  color: #a69f91;
+  font-family: "Courier New", monospace;
+  font-size: 0.76rem;
+}
+
+.guest-card {
+  min-height: 280px;
+  margin: 18px 0;
+  padding: 20px;
+  border: 1px solid rgba(220, 202, 169, 0.16);
+  background: rgba(220, 202, 169, 0.035);
+}
+
+.guest-card h2 {
+  margin-bottom: 4px;
+  color: #f2ead9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.guest-card dl {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  margin: 20px 0 0;
+}
+
+.guest-card dt,
+.guest-card dd {
+  padding: 8px 0;
+  border-top: 1px solid rgba(220, 202, 169, 0.11);
+}
+
+.guest-card dt {
+  color: #a69f91;
+}
+
+.guest-card dd {
+  margin: 0;
+  color: #ece6d8;
+}
+
+.empty-card {
+  padding-top: 72px;
+  text-align: center;
+}
+
+.feedback {
+  min-height: 1.5em;
+  color: #a69f91;
+}
+
+.feedback.is-correct {
+  color: #a3d4a0;
+}
+
+.feedback.is-wrong {
+  color: #de8e82;
+}
+
+.button {
+  min-width: 128px;
+  padding: 13px 16px;
+  border: 1px solid transparent;
+  color: #f6efe2;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.button-reject {
+  border-color: rgba(197, 99, 92, 0.44);
+  background: rgba(113, 37, 39, 0.68);
+}
+
+.button-approve {
+  border-color: rgba(115, 165, 121, 0.44);
+  background: rgba(41, 100, 63, 0.68);
+}
+
+.button-start {
+  border-color: rgba(191, 155, 93, 0.44);
+  background: rgba(116, 82, 37, 0.75);
+}
+
+.ending-panel {
+  margin-top: 16px;
+}
+
+.ending-panel h2 {
+  color: #f2ead9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+@media (max-width: 760px) {
+  .game-shell {
+    padding: 24px 0;
+  }
+
+  .desk-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-header {
+    align-items: flex-end;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

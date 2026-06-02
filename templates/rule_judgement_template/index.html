@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rule Judgement Template</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="game-header">
+        <p class="eyebrow">RULE JUDGEMENT TEMPLATE</p>
+        <h1>规则判断台</h1>
+        <p class="subtitle">核对信息，并为每一位访客作出决定。</p>
+      </header>
+
+      <section class="desk-grid" aria-label="规则判断区">
+        <aside class="panel rules-panel">
+          <h2>今日规则</h2>
+          <ol id="rule-list"></ol>
+        </aside>
+
+        <section class="panel subject-panel">
+          <div class="panel-heading">
+            <p id="progress-label">等待开始</p>
+            <p id="score-label">正确 0 / 0</p>
+          </div>
+          <div id="subject-card" class="subject-card">
+            <p class="placeholder">点击开始，载入第一位访客。</p>
+          </div>
+          <p id="feedback" class="feedback" aria-live="polite"></p>
+          <div class="actions">
+            <button id="reject-button" class="button button-danger" type="button" disabled>拒绝</button>
+            <button id="start-button" class="button button-neutral" type="button">开始值班</button>
+            <button id="approve-button" class="button button-success" type="button" disabled>批准</button>
+          </div>
+        </section>
+      </section>
+
+      <section id="ending-panel" class="panel ending-panel" hidden>
+        <p class="eyebrow">SHIFT COMPLETE</p>
+        <h2 id="ending-title"></h2>
+        <p id="ending-description"></p>
+        <button id="restart-button" class="button button-neutral" type="button">重新开始</button>
+      </section>
+    </main>
+
+    <script src="./data/rules.js"></script>
+    <script src="./data/guests.js"></script>
+    <script src="./data/endings.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

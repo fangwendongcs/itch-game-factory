@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080b12" />
+    <title>Night Desk / 旅馆前台：请勿让他们入住</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="game-header">
+        <div>
+          <p class="eyebrow">NIGHT DESK / SHIFT 001</p>
+          <h1>旅馆前台</h1>
+          <p class="subtitle">请勿让他们入住</p>
+        </div>
+        <div class="shift-clock" aria-label="当前值班时间">
+          <span>夜班</span>
+          <strong>00:17</strong>
+        </div>
+      </header>
+
+      <section class="desk-grid" aria-label="夜班前台">
+        <aside class="panel memo-panel">
+          <p class="eyebrow">FRONT DESK MEMO</p>
+          <h2>今晚的入住规则</h2>
+          <ol id="rule-list"></ol>
+          <p class="memo-note">不要追问规则来源。只需执行。</p>
+        </aside>
+
+        <section class="panel guest-panel">
+          <div class="panel-heading">
+            <p id="progress-label">值班尚未开始</p>
+            <p id="score-label">判断记录 0 / 0</p>
+          </div>
+
+          <div id="guest-card" class="guest-card">
+            <div class="empty-card">
+              <p class="eyebrow">LOBBY CAMERA: ACTIVE</p>
+              <p>柜台前暂时无人。</p>
+            </div>
+          </div>
+
+          <p id="feedback" class="feedback" aria-live="polite"></p>
+
+          <div class="actions">
+            <button id="reject-button" class="button button-reject" type="button" disabled>拒绝入住</button>
+            <button id="start-button" class="button button-start" type="button">开始夜班</button>
+            <button id="approve-button" class="button button-approve" type="button" disabled>允许入住</button>
+          </div>
+        </section>
+      </section>
+
+      <section id="ending-panel" class="panel ending-panel" hidden>
+        <p class="eyebrow">SHIFT REPORT / 06:00</p>
+        <h2 id="ending-title"></h2>
+        <p id="ending-description"></p>
+        <button id="restart-button" class="button button-start" type="button">重新值班</button>
+      </section>
+    </main>
+
+    <script src="./data/rules.js"></script>
+    <script src="./data/guests.js"></script>
+    <script src="./data/endings.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
