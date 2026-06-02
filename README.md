@@ -1,16 +1,21 @@
-# My Game Factory
+# itch-game-factory
 
 一个面向 itch.io 的 HTML5 小游戏工厂。仓库用于沉淀可复用生产流程、小游戏模板和每个真实游戏项目，方便持续批量开发、测试与发布短篇 Web 游戏。
 
 ## 目录职责
 
 ```text
-my-game-factory/
+itch-game-factory/
+├── docs/
 ├── skills/
 ├── templates/
 ├── projects/
 └── releases/
 ```
+
+### `docs/`
+
+仓库级上下文和长期协作约定。正式工作目录、目录职责和 Codex 工作原则见 [`docs/PROJECT_CONTEXT.md`](docs/PROJECT_CONTEXT.md)。
 
 ### `skills/`
 

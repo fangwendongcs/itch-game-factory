@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Local editor and temporary files
+.idea/
+.vscode/
+*.log
+*.tmp
+*.swp
+
+# Release artifacts and large media
+releases/*.zip
+*.mp4
+*.mov
+*.webm
+
+# Keep the release directory in Git
+!releases/.gitkeep
