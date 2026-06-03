@@ -21,6 +21,7 @@ const elements = {
   clockLabel: document.querySelector("#clock-label"),
   nightTitle: document.querySelector("#night-title"),
   memoNote: document.querySelector("#memo-note"),
+  sidebarDossier: document.querySelector("#sidebar-dossier"),
   moneyLabel: document.querySelector("#money-label"),
   complaintsLabel: document.querySelector("#complaints-label"),
   corruptionLabel: document.querySelector("#corruption-label"),
@@ -126,7 +127,8 @@ function renderGuest() {
     buildListSection("话语线索", guest.speechClues, "speech-panel"),
   );
 
-  elements.guestCard.append(scene, dossier);
+  elements.guestCard.append(scene);
+  elements.sidebarDossier.replaceChildren(dossier);
   renderRules();
   playSound("doorbell");
 }
@@ -287,6 +289,10 @@ function beginShift() {
   elements.startButton.hidden = true;
   elements.feedback.textContent = "";
   elements.feedback.className = "feedback";
+  elements.sidebarDossier.innerHTML = `
+    <p class="eyebrow">VISITOR DOSSIER</p>
+    <p class="sidebar-empty">系统正在读取第一位客人的脸。</p>
+  `;
   updateScore();
   renderStats();
 
@@ -416,6 +422,10 @@ function finishShift() {
       <p class="eyebrow">LOBBY CAMERA: NO SIGNAL</p>
       <p>天亮后，大堂恢复了安静。至少监控画面是这么显示的。</p>
     </div>
+  `;
+  elements.sidebarDossier.innerHTML = `
+    <p class="eyebrow">VISITOR DOSSIER</p>
+    <p class="sidebar-empty">本夜记录已封存。不要重新读自己的笔迹。</p>
   `;
   elements.endingTitle.textContent = ending?.title ?? "值班结束";
   elements.endingDescription.textContent = ending?.description ?? "请补充结局数据。";

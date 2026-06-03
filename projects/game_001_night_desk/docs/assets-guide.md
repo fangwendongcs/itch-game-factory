@@ -27,13 +27,12 @@ environment scene
 -> visitor portrait / generated silhouette
 -> organ anomaly markers
 -> dialogue box
--> registry and rule panels
--> action buttons
+-> compact left-side registry, rule, stat, and action panels
 ```
 
 ## Current Portraits
 
-The first imported portrait batch lives in `assets/portraits/`:
+The imported portrait batches currently cover all 15 MVP visitors and live in `assets/portraits/`:
 
 - `visitor-quiet-woman.png`
 - `visitor-hollow-eyes.png`
@@ -41,8 +40,17 @@ The first imported portrait batch lives in `assets/portraits/`:
 - `visitor-heavy-smile.png`
 - `visitor-wide-grin.png`
 - `visitor-hood-child.png`
+- `visitor-folded-smile.png`
+- `visitor-thin-man.png`
+- `visitor-tired-mother.png`
+- `visitor-pale-woman.png`
+- `visitor-office-boss.png`
+- `visitor-motel-staff.png`
+- `visitor-crooked-smile.png`
+- `visitor-student-woman.png`
+- `visitor-suit-grin.png`
 
-These are currently mapped to selected guests through `visual.portrait` in `data/guests.js`.
+These are currently mapped to guests through `visual.portrait` in `data/guests.js`.
 
 Note: this batch uses baked checkerboard backgrounds rather than true transparency. The UI darkens and blends them into the CCTV scene as an MVP workaround. For final art, prefer true transparent `.png` or `.webp` portraits.
 

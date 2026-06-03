@@ -51,6 +51,22 @@
           <h2 id="night-title">今晚的入住规则</h2>
           <ol id="rule-list"></ol>
           <p id="memo-note" class="memo-note">不要追问规则来源。只需执行。</p>
+          <div id="sidebar-dossier" class="sidebar-dossier">
+            <p class="eyebrow">VISITOR DOSSIER</p>
+            <p class="sidebar-empty">等待第一位客人进入监控画面。</p>
+          </div>
+
+          <div class="sidebar-controls">
+            <p id="feedback" class="feedback" aria-live="polite"></p>
+
+            <div class="actions">
+              <button id="allow-button" class="button button-allow" type="button" disabled>Allow Check-in</button>
+              <button id="reject-button" class="button button-reject" type="button" disabled>Refuse</button>
+              <button id="police-button" class="button button-police" type="button" disabled>Call Police</button>
+              <button id="error-button" class="button button-error" type="button" disabled>System Error</button>
+              <button id="start-button" class="button button-start" type="button">开始夜班</button>
+            </div>
+          </div>
         </aside>
 
         <section class="panel guest-panel">
@@ -64,16 +80,6 @@
               <p class="eyebrow">LOBBY CAMERA: ACTIVE</p>
               <p>柜台前暂时无人。</p>
             </div>
-          </div>
-
-          <p id="feedback" class="feedback" aria-live="polite"></p>
-
-          <div class="actions">
-            <button id="allow-button" class="button button-allow" type="button" disabled>Allow Check-in</button>
-            <button id="reject-button" class="button button-reject" type="button" disabled>Refuse</button>
-            <button id="police-button" class="button button-police" type="button" disabled>Call Police</button>
-            <button id="error-button" class="button button-error" type="button" disabled>System Error</button>
-            <button id="start-button" class="button button-start" type="button">开始夜班</button>
           </div>
         </section>
       </section>

@@ -12,7 +12,16 @@
     "softSmile": "./assets/portraits/visitor-soft-smile.png",
     "heavySmile": "./assets/portraits/visitor-heavy-smile.png",
     "wideGrin": "./assets/portraits/visitor-wide-grin.png",
-    "hoodChild": "./assets/portraits/visitor-hood-child.png"
+    "hoodChild": "./assets/portraits/visitor-hood-child.png",
+    "foldedSmile": "./assets/portraits/visitor-folded-smile.png",
+    "thinMan": "./assets/portraits/visitor-thin-man.png",
+    "tiredMother": "./assets/portraits/visitor-tired-mother.png",
+    "paleWoman": "./assets/portraits/visitor-pale-woman.png",
+    "officeBoss": "./assets/portraits/visitor-office-boss.png",
+    "motelStaff": "./assets/portraits/visitor-motel-staff.png",
+    "crookedSmile": "./assets/portraits/visitor-crooked-smile.png",
+    "studentWoman": "./assets/portraits/visitor-student-woman.png",
+    "suitGrin": "./assets/portraits/visitor-suit-grin.png"
   },
   "textures": {},
   "ui": {},

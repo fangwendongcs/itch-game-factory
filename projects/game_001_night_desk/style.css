@@ -32,9 +32,9 @@ body::before {
 }
 
 .game-shell {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1440px, calc(100% - 28px));
   margin: 0 auto;
-  padding: 42px 0;
+  padding: 26px 0;
   position: relative;
 }
 
@@ -173,9 +173,9 @@ h3 {
 
 .desk-grid {
   display: grid;
-  grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.6fr);
+  grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
   gap: 16px;
-  margin-top: 26px;
+  margin-top: 18px;
 }
 
 .panel {
@@ -187,10 +187,13 @@ h3 {
 .memo-panel,
 .guest-panel,
 .ending-panel {
-  padding: 22px;
+  padding: 16px;
 }
 
 .memo-panel {
+  position: relative;
+  max-height: calc(100vh - 165px);
+  overflow: auto;
   background:
     linear-gradient(rgba(24, 21, 18, 0.92), rgba(11, 12, 14, 0.96)),
     #101214;
@@ -204,11 +207,37 @@ h3 {
 }
 
 .memo-note {
-  margin: 22px 0 0;
+  margin: 16px 0 0;
   padding-top: 14px;
   border-top: 1px solid rgba(220, 202, 169, 0.12);
   font-size: 0.8rem;
   line-height: 1.6;
+}
+
+.sidebar-dossier {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(220, 202, 169, 0.12);
+}
+
+.sidebar-empty {
+  margin-bottom: 0;
+  color: #8c8579;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.sidebar-controls {
+  position: sticky;
+  z-index: 20;
+  bottom: -16px;
+  margin: 16px -16px -16px;
+  padding: 12px 16px 16px;
+  border-top: 1px solid rgba(220, 202, 169, 0.14);
+  background:
+    linear-gradient(rgba(17, 16, 15, 0.94), rgba(8, 9, 11, 0.98)),
+    #090a0c;
+  box-shadow: 0 -18px 34px rgba(0, 0, 0, 0.28);
 }
 
 .panel-heading {
@@ -218,9 +247,9 @@ h3 {
 }
 
 .guest-card {
-  min-height: 560px;
-  margin: 18px 0;
-  padding: 14px;
+  min-height: 680px;
+  margin: 12px 0;
+  padding: 10px;
   border: 1px solid rgba(220, 202, 169, 0.14);
   background:
     linear-gradient(rgba(131, 168, 139, 0.035), transparent),
@@ -239,7 +268,7 @@ h3 {
 
 .visitor-scene {
   position: relative;
-  min-height: 430px;
+  min-height: 660px;
   overflow: hidden;
   border: 1px solid rgba(143, 174, 134, 0.22);
   background:
@@ -399,18 +428,18 @@ h3 {
 .visitor-figure {
   position: absolute;
   z-index: 4;
-  left: 32%;
-  bottom: 54px;
-  width: 210px;
-  height: 300px;
+  left: 35%;
+  bottom: 78px;
+  width: 260px;
+  height: 380px;
   transform: translateX(-50%);
   filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.55));
 }
 
 .visitor-figure.has-portrait {
-  bottom: 6px;
-  width: 320px;
-  height: 410px;
+  bottom: 0;
+  width: 430px;
+  height: 620px;
   overflow: hidden;
 }
 
@@ -647,8 +676,8 @@ h3 {
   position: absolute;
   z-index: 12;
   right: 22px;
-  bottom: 24px;
-  width: min(48%, 420px);
+  bottom: 30px;
+  width: min(44%, 500px);
   min-height: 112px;
   padding: 18px 20px;
   border: 1px solid rgba(188, 211, 161, 0.28);
@@ -679,39 +708,39 @@ h3 {
 
 .dossier-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
 
 .dossier-grid .guest-section {
-  margin-top: 12px;
-  padding: 14px;
+  margin-top: 0;
+  padding: 12px;
   border: 1px solid rgba(220, 202, 169, 0.12);
   background: rgba(3, 7, 8, 0.45);
 }
 
-.guest-card dl {
+.dossier-grid dl {
   display: grid;
   grid-template-columns: 7rem 1fr;
   margin: 0;
 }
 
-.guest-card dt,
-.guest-card dd {
+.dossier-grid dt,
+.dossier-grid dd {
   padding: 8px 0;
   border-top: 1px solid rgba(220, 202, 169, 0.11);
 }
 
-.guest-card dt {
+.dossier-grid dt {
   color: #a69f91;
 }
 
-.guest-card dd {
+.dossier-grid dd {
   margin: 0;
   color: #ece6d8;
 }
 
-.guest-card ul {
+.dossier-grid ul {
   display: grid;
   grid-template-columns: 1fr;
   gap: 9px;
@@ -720,7 +749,7 @@ h3 {
   list-style: none;
 }
 
-.guest-card li {
+.dossier-grid li {
   padding: 10px 11px;
   border: 1px solid rgba(220, 202, 169, 0.1);
   background: rgba(0, 0, 0, 0.18);
@@ -735,9 +764,13 @@ h3 {
 
 .inspection-item {
   display: grid;
-  grid-template-columns: 4rem 1fr auto;
-  gap: 10px;
+  grid-template-columns: 3.7rem 1fr;
+  gap: 7px 10px;
   align-items: start;
+}
+
+.inspection-meter {
+  grid-column: 2;
 }
 
 .inspection-item.severity-2,
@@ -771,8 +804,8 @@ h3 {
 }
 
 .feedback {
-  min-height: 3.2em;
-  padding: 12px 14px;
+  min-height: 2.4em;
+  padding: 9px 12px;
   border: 1px solid rgba(220, 202, 169, 0.11);
   background: rgba(0, 0, 0, 0.16);
   color: #a69f91;
@@ -805,7 +838,8 @@ h3 {
 
 .actions {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr;
+  gap: 8px;
 }
 
 .button-allow {
@@ -922,15 +956,15 @@ h3 {
     grid-column: 2;
   }
 
-  .guest-card dl {
+  .dossier-grid dl {
     grid-template-columns: 1fr;
   }
 
-  .guest-card dd {
+  .dossier-grid dd {
     padding-top: 0;
   }
 
-  .guest-card ul {
+  .dossier-grid ul {
     grid-template-columns: 1fr;
   }
 }

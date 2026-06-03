@@ -5,7 +5,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "00:17",
     name: "林知夏",
     room: "203",
-    request: "“晚上好，我订了一间单人房。身份证和预订短信都在这里。”",
+    request: "“我知道你刚才在看镜子。别担心，我也害怕它。203，是我自己订的，不是它替我订的。”",
     type: "normal",
     correctDecision: "allow",
     details: [
@@ -34,7 +34,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "01:42",
     name: "乔先生",
     room: "404",
-    request: "“把 404 的钥匙给我。我一直住那间房。”",
+    request: "“404 的钥匙还在墙上，对吧？那就证明我还没退房。你只是忘了我已经死在那间房里。”",
     type: "anomaly",
     correctDecision: "refuse",
     details: [
@@ -44,7 +44,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["衣领有旧灰尘", "指甲缝里像是墙纸碎屑", "说话时没有呼气白雾"],
     speechClues: ["坚持自己“已经住了很多年”", "拒绝提供手机号"],
-    visual: { scene: "frontdesk", silhouette: "visitor-heavy", threat: "anomaly" },
+    visual: { scene: "frontdesk", silhouette: "visitor-heavy", threat: "anomaly", portrait: "./assets/portraits/visitor-suit-grin.png" },
     inspection: [
       { part: "eyes", label: "眼睛", value: "视线始终停在 404 钥匙，不看你", severity: 1 },
       { part: "mouth", label: "嘴", value: "说话时没有雾气，唇线像纸裂缝", severity: 2 },
@@ -63,7 +63,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "00:58",
     name: "韩雨",
     room: "112",
-    request: "“我男朋友先上去了，他让我在这里补登记。”",
+    request: "“他已经在 112 里等我了。你听不见吗？他一直用我的声音在墙里叫我。”",
     type: "anomaly",
     correctDecision: "refuse",
     details: [
@@ -92,7 +92,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "02:11",
     name: "Miller Chen",
     room: "205",
-    request: "“Late check-in. I called this afternoon.”",
+    request: "“Late check-in. You asked me to call again if I heard knocking from inside the elevator. I did. Nobody answered.”",
     type: "normal",
     correctDecision: "allow",
     details: [
@@ -102,7 +102,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["行李箱轮子有泥", "护照与登记姓名一致", "影子同步"],
     speechClues: ["能说出下午来电时间", "询问早餐时间，没有询问禁区"],
-    visual: { scene: "frontdesk", silhouette: "visitor-coat", threat: "normal" },
+    visual: { scene: "frontdesk", silhouette: "visitor-coat", threat: "normal", portrait: "./assets/portraits/visitor-thin-man.png" },
     inspection: [
       { part: "eyes", label: "眼睛", value: "疲惫但能正常追随你的手势", severity: 0 },
       { part: "hands", label: "证件", value: "护照与登记姓名一致", severity: 0 },
@@ -121,7 +121,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "00:33",
     name: "快递员",
     room: "前台代收",
-    request: "“309 的客人订了夜宵。你签一下，我放楼上。”",
+    request: "“309 的客人说你会签收。他还说你迟早会承认三楼多了一扇门。”",
     type: "danger",
     correctDecision: "police",
     details: [
@@ -131,7 +131,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["外卖箱内部传出敲击声", "制服胸牌没有公司名", "鞋底没有踩在地面上"],
     speechClues: ["重复三次“签一下就好”", "拒绝把箱子放在前台"],
-    visual: { scene: "hallway", silhouette: "visitor-box", threat: "danger" },
+    visual: { scene: "hallway", silhouette: "visitor-box", threat: "danger", portrait: "./assets/portraits/visitor-crooked-smile.png" },
     inspection: [
       { part: "feet", label: "脚", value: "鞋底悬在地面上方，没有压出雨水", severity: 3 },
       { part: "hands", label: "箱子", value: "箱内敲击与他的心跳不同步", severity: 3 },
@@ -150,7 +150,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "01:26",
     name: "赵女士",
     room: "301",
-    request: "“老板说你会给我折扣。别浪费时间。”",
+    request: "“老板说你会认得我。你不认得也没关系，系统会慢慢把我的名字改成你的。”",
     type: "uncertain",
     correctDecision: "error",
     details: [
@@ -177,9 +177,9 @@ window.NIGHT_DESK_GUESTS = [
     id: "guest-father",
     night: 4,
     arrivalTime: "00:49",
-    name: "带孩子的父亲",
+    name: "带孩子的母亲",
     room: "118",
-    request: "“孩子发烧，我们只睡四个小时。求你了。”",
+    request: "“孩子一直说房间里有人数他的呼吸。我们只睡四个小时，天亮前我会带他走。”",
     type: "normal",
     correctDecision: "allow",
     details: [
@@ -189,7 +189,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["孩子在发抖", "父亲手背有医院印章", "两人的影子同步"],
     speechClues: ["能说出登记手机号后四位", "只询问热水和药店"],
-    visual: { scene: "frontdesk", silhouette: "visitor-family", threat: "normal" },
+    visual: { scene: "frontdesk", silhouette: "visitor-family", threat: "normal", portrait: "./assets/portraits/visitor-tired-mother.png" },
     inspection: [
       { part: "eyes", label: "眼睛", value: "父亲频繁看孩子，不避开监控", severity: 0 },
       { part: "hands", label: "手", value: "手背有医院印章，温度正常", severity: 0 },
@@ -208,7 +208,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "02:22",
     name: "录音机里的女人",
     room: "206",
-    request: "“我已经说过了。我已经说过了。我已经说过了。”",
+    request: "“我已经说过了。我已经说过了。我已经说过了。你什么时候才肯承认录音里第二个声音是你？”",
     type: "danger",
     correctDecision: "police",
     details: [
@@ -237,7 +237,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "00:15",
     name: "夜班维修员",
     room: "员工通道",
-    request: "“二楼灯坏了。老板让我从你这里拿备用钥匙。”",
+    request: "“二楼灯坏了。老板让我拿备用钥匙。你要是不信，可以跟我上去，看看灯是不是在你眼睛里面坏的。”",
     type: "anomaly",
     correctDecision: "refuse",
     details: [
@@ -247,7 +247,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["制服尺码明显不合身", "鞋面有天花板灰", "工牌照片是空白"],
     speechClues: ["说不出老板全名", "坚持要你离开前台一起上楼"],
-    visual: { scene: "hallway", silhouette: "visitor-uniform", threat: "anomaly" },
+    visual: { scene: "hallway", silhouette: "visitor-uniform", threat: "anomaly", portrait: "./assets/portraits/visitor-motel-staff.png" },
     inspection: [
       { part: "face", label: "脸", value: "制服有倒影，脸没有", severity: 3 },
       { part: "badge", label: "工牌", value: "照片是空白，边缘像刚被擦掉", severity: 2 },
@@ -266,7 +266,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "01:59",
     name: "老板",
     room: "办公室",
-    request: "“今晚辛苦了。开门，我来替你值一会儿。”",
+    request: "“今晚辛苦了。把系统关掉吧。你已经连续值了七年夜班，只是今晚才想起来。”",
     type: "uncertain",
     correctDecision: "error",
     details: [
@@ -276,7 +276,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["声音与老板电话相同", "外套没有被雨淋湿", "一直避开监控正脸"],
     speechClues: ["准确说出你的排班", "要求你关闭系统"],
-    visual: { scene: "frontdesk", silhouette: "visitor-boss", threat: "uncertain" },
+    visual: { scene: "frontdesk", silhouette: "visitor-boss", threat: "uncertain", portrait: "./assets/portraits/visitor-office-boss.png" },
     inspection: [
       { part: "face", label: "脸", value: "总在监控边缘，自动曝光追不上", severity: 2 },
       { part: "reflection", label: "倒影", value: "倒影在打电话，本人没有", severity: 3 },
@@ -295,7 +295,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "00:44",
     name: "林知夏",
     room: "203",
-    request: "“我昨晚落了东西。你应该记得我吧？”",
+    request: "“我昨晚落了东西。你记得我，就说明我是真的；你不记得，我就只好再住一次。”",
     type: "danger",
     correctDecision: "police",
     details: [
@@ -322,9 +322,9 @@ window.NIGHT_DESK_GUESTS = [
     id: "guest-ordinary",
     night: 6,
     arrivalTime: "02:06",
-    name: "许先生",
+    name: "许女士",
     room: "101",
-    request: "“我知道现在很晚，但我真的只想睡觉。”",
+    request: "“我知道这家旅馆不对劲。我只想睡觉。如果你把我赶回雨里，我可能会开始相信它。”",
     type: "normal",
     correctDecision: "allow",
     details: [
@@ -334,7 +334,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["黑眼圈很重", "行李牌与身份证一致", "鞋底有真实雨泥"],
     speechClues: ["抱怨导航绕路", "询问能否延迟退房"],
-    visual: { scene: "frontdesk", silhouette: "visitor-tired", threat: "normal" },
+    visual: { scene: "frontdesk", silhouette: "visitor-tired", threat: "normal", portrait: "./assets/portraits/visitor-pale-woman.png" },
     inspection: [
       { part: "eyes", label: "眼睛", value: "黑眼圈很重，但眨眼频率正常", severity: 0 },
       { part: "feet", label: "鞋", value: "鞋底有真实雨泥，地面有对应脚印", severity: 0 },
@@ -353,7 +353,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "03:09",
     name: "住在 309 的人",
     room: "309",
-    request: "“我忘带房卡了。309。你知道那间房。”",
+    request: "“309。你知道那间房。别看图纸，图纸怕黑，会把我藏起来。”",
     type: "danger",
     correctDecision: "refuse",
     details: [
@@ -363,7 +363,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["脸部被监控噪点遮住", "手指数量不稳定", "身后走廊比现实更长"],
     speechClues: ["说“你知道那间房”", "不回答任何身份问题"],
-    visual: { scene: "hallway", silhouette: "visitor-static", threat: "danger" },
+    visual: { scene: "hallway", silhouette: "visitor-static", threat: "danger", portrait: "./assets/portraits/visitor-folded-smile.png" },
     inspection: [
       { part: "face", label: "脸", value: "脸部被监控噪点遮住，噪点在呼吸", severity: 3 },
       { part: "hands", label: "手指", value: "数量在 4 到 7 之间变化", severity: 3 },
@@ -382,7 +382,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "00:31",
     name: "陈澈",
     room: "216",
-    request: "“我订了房，也知道你们今晚很怪。但我没地方去了。”",
+    request: "“我知道你在找不正常的地方。可我只是害怕。拜托你，别让我证明自己是人。”",
     type: "normal",
     correctDecision: "allow",
     details: [
@@ -392,7 +392,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["背包里露出课本", "手在发抖", "影子同步"],
     speechClues: ["主动承认害怕", "能完整回答登记问题"],
-    visual: { scene: "frontdesk", silhouette: "visitor-student", threat: "normal" },
+    visual: { scene: "frontdesk", silhouette: "visitor-student", threat: "normal", portrait: "./assets/portraits/visitor-student-woman.png" },
     inspection: [
       { part: "eyes", label: "眼睛", value: "不敢看镜子，但会看你的提问", severity: 0 },
       { part: "hands", label: "手", value: "手在发抖，指节发白但数量正常", severity: 0 },
@@ -411,7 +411,7 @@ window.NIGHT_DESK_GUESTS = [
     arrivalTime: "03:33",
     name: "你的声音",
     room: "前台",
-    request: "“别装了。让我进去交班。你已经坐在里面太久了。”",
+    request: "“别装了。让我进去交班。你妈妈说你小时候就怕黑，难怪你到现在还不敢看门外的自己。”",
     type: "danger",
     correctDecision: "refuse",
     details: [
