@@ -15,6 +15,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["眼睛会眨", "影子贴合脚边", "手心有雨水"],
     speechClues: ["能说出预订尾号 0317", "没有主动询问楼层布局"],
+    visual: { scene: "frontdesk", silhouette: "visitor-slim", threat: "normal" },
+    inspection: [
+      { part: "eyes", label: "眼睛", value: "眨眼自然，视线先看前台再看房卡", severity: 0 },
+      { part: "hands", label: "手", value: "掌心湿冷，有真实雨水痕迹", severity: 0 },
+      { part: "shadow", label: "影子", value: "脚边影子同步，没有二次轮廓", severity: 0 },
+    ],
     outcomeText: {
       allow: "登记完成。她接过房卡，小声提醒你：二楼自动贩卖机里有东西在敲玻璃。",
       refuse: "她在前台站了十分钟才离开。第二天投诉邮件附上了完整预订截图。",
@@ -38,6 +44,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["衣领有旧灰尘", "指甲缝里像是墙纸碎屑", "说话时没有呼气白雾"],
     speechClues: ["坚持自己“已经住了很多年”", "拒绝提供手机号"],
+    visual: { scene: "frontdesk", silhouette: "visitor-heavy", threat: "anomaly" },
+    inspection: [
+      { part: "eyes", label: "眼睛", value: "视线始终停在 404 钥匙，不看你", severity: 1 },
+      { part: "mouth", label: "嘴", value: "说话时没有雾气，唇线像纸裂缝", severity: 2 },
+      { part: "shadow", label: "倒影", value: "镜中动作比本人慢半拍", severity: 2 },
+    ],
     outcomeText: {
       allow: "你取下 404 的钥匙。钥匙齿纹像软肉一样弯了一下。",
       refuse: "你没有碰 404 的钥匙。他沉默了一会儿，转身离开。钥匙墙恢复了安静。",
@@ -61,6 +73,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["雨伞没有滴水", "右手一直藏在袖口", "监控画面中脸部过曝"],
     speechClues: ["说不出男朋友姓名", "反复强调“他在房里等我”"],
+    visual: { scene: "frontdesk", silhouette: "visitor-umbrella", threat: "anomaly" },
+    inspection: [
+      { part: "face", label: "脸", value: "监控中脸部过曝，肉眼却很暗", severity: 2 },
+      { part: "hands", label: "右手", value: "一直藏在袖口，袖口内侧有抓门声", severity: 2 },
+      { part: "reflection", label: "倒影", value: "镜中只有雨伞，没有人", severity: 3 },
+    ],
     outcomeText: {
       allow: "她拿到备用房卡。112 的电话随后响起，听筒里只有两个人同时笑。",
       refuse: "你拒绝补卡。她把雨伞留在门边，伞柄还在轻轻呼吸。",
@@ -84,6 +102,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["行李箱轮子有泥", "护照与登记姓名一致", "影子同步"],
     speechClues: ["能说出下午来电时间", "询问早餐时间，没有询问禁区"],
+    visual: { scene: "frontdesk", silhouette: "visitor-coat", threat: "normal" },
+    inspection: [
+      { part: "eyes", label: "眼睛", value: "疲惫但能正常追随你的手势", severity: 0 },
+      { part: "hands", label: "证件", value: "护照与登记姓名一致", severity: 0 },
+      { part: "shadow", label: "影子", value: "行李箱和本人影子同步", severity: 0 },
+    ],
     outcomeText: {
       allow: "他签完名，认真读了消防逃生图。普通客人也会害怕这栋楼。",
       refuse: "他拿出三份证明。投诉值上升，老板短信只发来一个问号。",
@@ -107,6 +131,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["外卖箱内部传出敲击声", "制服胸牌没有公司名", "鞋底没有踩在地面上"],
     speechClues: ["重复三次“签一下就好”", "拒绝把箱子放在前台"],
+    visual: { scene: "hallway", silhouette: "visitor-box", threat: "danger" },
+    inspection: [
+      { part: "feet", label: "脚", value: "鞋底悬在地面上方，没有压出雨水", severity: 3 },
+      { part: "hands", label: "箱子", value: "箱内敲击与他的心跳不同步", severity: 3 },
+      { part: "reflection", label: "倒影", value: "箱子有倒影，人没有", severity: 3 },
+    ],
     outcomeText: {
       allow: "你让他上楼。三楼监控出现了本不存在的走廊。",
       refuse: "他贴近玻璃，问你是不是不饿。箱子里的敲击声变快了。",
@@ -130,6 +160,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["衣服干净得不像刚进雨夜", "手机屏幕没有亮起", "能准确叫出老板姓氏"],
     speechClues: ["拒绝重新刷卡", "要求你离开前台去开门"],
+    visual: { scene: "frontdesk", silhouette: "visitor-elegant", threat: "uncertain" },
+    inspection: [
+      { part: "eyes", label: "眼睛", value: "瞳孔反光里有你身后的门", severity: 1 },
+      { part: "hands", label: "手机", value: "屏幕不亮，却能显示支付失败", severity: 2 },
+      { part: "voice", label: "声音", value: "叫出老板姓氏时，电话线同时响了一声", severity: 1 },
+    ],
     outcomeText: {
       allow: "你交出钥匙。老板随后打来电话，说他今晚没联系任何客人。",
       refuse: "她开始大声投诉。老板信任下降，但她最终没有上楼。",
@@ -153,6 +189,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["孩子在发抖", "父亲手背有医院印章", "两人的影子同步"],
     speechClues: ["能说出登记手机号后四位", "只询问热水和药店"],
+    visual: { scene: "frontdesk", silhouette: "visitor-family", threat: "normal" },
+    inspection: [
+      { part: "eyes", label: "眼睛", value: "父亲频繁看孩子，不避开监控", severity: 0 },
+      { part: "hands", label: "手", value: "手背有医院印章，温度正常", severity: 0 },
+      { part: "shadow", label: "影子", value: "两人影子都贴在脚下", severity: 0 },
+    ],
     outcomeText: {
       allow: "你让他们入住。孩子经过镜子时没有异常，只是很累。",
       refuse: "父亲没有争辩，只抱紧孩子离开。投诉邮件让老板非常愤怒。",
@@ -176,6 +218,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["手里拿着一台正在播放的录音机", "脖子上有旧式房卡绳", "每次眨眼都少一帧"],
     speechClues: ["同一句话重复超过三次", "声音从录音机而不是嘴里传出"],
+    visual: { scene: "frontdesk", silhouette: "visitor-recorder", threat: "danger" },
+    inspection: [
+      { part: "eyes", label: "眼睛", value: "每次眨眼，监控丢失一帧", severity: 3 },
+      { part: "mouth", label: "嘴", value: "嘴唇不动，声音从录音机传出", severity: 3 },
+      { part: "neck", label: "脖颈", value: "旧房卡绳勒进皮肤，没有压痕变化", severity: 2 },
+    ],
     outcomeText: {
       allow: "她进入电梯，录音机却留在前台继续播放你的声音。",
       refuse: "她停止说话。录音机开始播放你按下拒绝键的声音。",
@@ -199,6 +247,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["制服尺码明显不合身", "鞋面有天花板灰", "工牌照片是空白"],
     speechClues: ["说不出老板全名", "坚持要你离开前台一起上楼"],
+    visual: { scene: "hallway", silhouette: "visitor-uniform", threat: "anomaly" },
+    inspection: [
+      { part: "face", label: "脸", value: "制服有倒影，脸没有", severity: 3 },
+      { part: "badge", label: "工牌", value: "照片是空白，边缘像刚被擦掉", severity: 2 },
+      { part: "feet", label: "鞋", value: "鞋面沾着天花板灰，不是地面灰", severity: 2 },
+    ],
     outcomeText: {
       allow: "你交出备用钥匙。二楼灯全部熄灭，监控只剩雪花。",
       refuse: "你拒绝交钥匙。他把空白工牌翻过来，上面写着你的名字。",
@@ -222,6 +276,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["声音与老板电话相同", "外套没有被雨淋湿", "一直避开监控正脸"],
     speechClues: ["准确说出你的排班", "要求你关闭系统"],
+    visual: { scene: "frontdesk", silhouette: "visitor-boss", threat: "uncertain" },
+    inspection: [
+      { part: "face", label: "脸", value: "总在监控边缘，自动曝光追不上", severity: 2 },
+      { part: "reflection", label: "倒影", value: "倒影在打电话，本人没有", severity: 3 },
+      { part: "voice", label: "声音", value: "声音像老板，但呼吸节奏不像活人", severity: 2 },
+    ],
     outcomeText: {
       allow: "你离开前台。再次回来时，屏幕上显示今晚从未安排你值班。",
       refuse: "他冷笑着记下你的工号。也许是真的老板，也许不是。",
@@ -245,6 +305,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["穿着与第一夜完全相同", "雨水从下往上流回伞面", "笑容停留过久"],
     speechClues: ["知道第一夜你说过的话", "反复问你是否还记得她"],
+    visual: { scene: "frontdesk", silhouette: "visitor-slim duplicate", threat: "danger" },
+    inspection: [
+      { part: "eyes", label: "眼睛", value: "瞳孔里映出第一夜的前台画面", severity: 3 },
+      { part: "mouth", label: "嘴", value: "笑容停留过久，像暂停帧", severity: 2 },
+      { part: "rain", label: "雨水", value: "雨水从下往上流回伞面", severity: 3 },
+    ],
     outcomeText: {
       allow: "你递出 203 的钥匙。第一夜的登记记录开始从屏幕上消失。",
       refuse: "她的笑容裂开一点。另一个她在监控角落里向你挥手。",
@@ -268,6 +334,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["黑眼圈很重", "行李牌与身份证一致", "鞋底有真实雨泥"],
     speechClues: ["抱怨导航绕路", "询问能否延迟退房"],
+    visual: { scene: "frontdesk", silhouette: "visitor-tired", threat: "normal" },
+    inspection: [
+      { part: "eyes", label: "眼睛", value: "黑眼圈很重，但眨眼频率正常", severity: 0 },
+      { part: "feet", label: "鞋", value: "鞋底有真实雨泥，地面有对应脚印", severity: 0 },
+      { part: "hands", label: "行李牌", value: "行李牌与身份证一致", severity: 0 },
+    ],
     outcomeText: {
       allow: "他几乎是拖着自己上楼。普通人的疲惫，在这里反而显得稀有。",
       refuse: "他站在雨里给平台客服打电话。老板信任明显下降。",
@@ -291,6 +363,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["脸部被监控噪点遮住", "手指数量不稳定", "身后走廊比现实更长"],
     speechClues: ["说“你知道那间房”", "不回答任何身份问题"],
+    visual: { scene: "hallway", silhouette: "visitor-static", threat: "danger" },
+    inspection: [
+      { part: "face", label: "脸", value: "脸部被监控噪点遮住，噪点在呼吸", severity: 3 },
+      { part: "hands", label: "手指", value: "数量在 4 到 7 之间变化", severity: 3 },
+      { part: "hallway", label: "走廊", value: "他身后的走廊比现实更长", severity: 3 },
+    ],
     outcomeText: {
       allow: "你试图找 309 的钥匙。钥匙墙后面伸出一只手，把你也往里找。",
       refuse: "你没有承认 309 的存在。二楼栏杆旁的倒影慢慢退回黑暗。",
@@ -314,6 +392,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["背包里露出课本", "手在发抖", "影子同步"],
     speechClues: ["主动承认害怕", "能完整回答登记问题"],
+    visual: { scene: "frontdesk", silhouette: "visitor-student", threat: "normal" },
+    inspection: [
+      { part: "eyes", label: "眼睛", value: "不敢看镜子，但会看你的提问", severity: 0 },
+      { part: "hands", label: "手", value: "手在发抖，指节发白但数量正常", severity: 0 },
+      { part: "shadow", label: "影子", value: "背包和本人影子同步", severity: 0 },
+    ],
     outcomeText: {
       allow: "他接过房卡，认真说了谢谢。恐惧不等于异常。",
       refuse: "他低头离开。老板短信很快出现：正常客人也要接待。",
@@ -337,6 +421,12 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["声音与你完全相同", "工牌照片正在变成你的脸", "门外的人没有敲门却传来敲门声"],
     speechClues: ["知道你本轮所有错误", "要求你打开前台内侧门"],
+    visual: { scene: "frontdesk", silhouette: "visitor-you", threat: "danger" },
+    inspection: [
+      { part: "voice", label: "声音", value: "与你完全相同，连犹豫都一样", severity: 3 },
+      { part: "badge", label: "工牌", value: "照片正在变成你的脸", severity: 3 },
+      { part: "reflection", label: "镜子", value: "镜子里坐着另一个你", severity: 3 },
+    ],
     outcomeText: {
       allow: "你打开前台门。第二天，早班员工发现有两份完全相同的值班记录。",
       refuse: "你没有开门。03:34，门外的声音终于开始变得不像你。",

@@ -1,0 +1,19 @@
+{
+  "concepts": {
+    "visitorRegistryUi": "./assets/concepts/concept-01-visitor-registry-ui.png",
+    "dialogueScene": "./assets/concepts/concept-02-dialogue-scene.png",
+    "hallwayVisitor": "./assets/concepts/concept-03-hallway-visitor.png",
+    "moodboardUi": "./assets/concepts/concept-04-moodboard-ui.png"
+  },
+  "backgrounds": {},
+  "portraits": {},
+  "textures": {},
+  "ui": {},
+  "audio": {
+    "button": "./assets/audio/button.wav",
+    "doorbell": "./assets/audio/doorbell.wav",
+    "anomaly": "./assets/audio/anomaly.wav",
+    "rainLoop": "./assets/audio/rain_loop.wav"
+  },
+  "fonts": {}
+}

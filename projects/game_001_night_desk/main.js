@@ -51,6 +51,16 @@ const decisionButtons = {
   error: elements.errorButton,
 };
 
+const audio = {
+  unlocked: false,
+  tracks: {
+    button: createAudio("./assets/audio/button.wav", 0.42),
+    doorbell: createAudio("./assets/audio/doorbell.wav", 0.34),
+    anomaly: createAudio("./assets/audio/anomaly.wav", 0.36),
+    rain: createAudio("./assets/audio/rain_loop.wav", 0.18, true),
+  },
+};
+
 const state = {
   currentIndex: -1,
   correctCount: 0,
@@ -107,28 +117,94 @@ function renderGuest() {
   elements.progressLabel.textContent = `第 ${currentNight.night} 夜 / 来客 ${state.currentIndex + 1} / ${guests.length}`;
   elements.guestCard.replaceChildren();
 
-  const cameraLabel = document.createElement("p");
-  cameraLabel.className = "eyebrow";
-  cameraLabel.textContent = `LOBBY CAMERA / ${guest.arrivalTime} / ROOM ${guest.room}`;
+  const scene = buildVisitorScene(guest);
+  const dossier = document.createElement("div");
+  dossier.className = "dossier-grid";
+  dossier.append(
+    buildDefinitionList("登记资料", guest.details, "registry-panel"),
+    buildInspectionPanel(guest.inspection ?? guest.traits ?? []),
+    buildListSection("话语线索", guest.speechClues, "speech-panel"),
+  );
 
-  const name = document.createElement("h2");
-  name.textContent = guest.name;
-
-  const request = document.createElement("p");
-  request.className = "guest-request";
-  request.textContent = guest.request;
-
-  const details = buildDefinitionList("登记资料", guest.details);
-  const traits = buildListSection("观察特征", guest.traits);
-  const speech = buildListSection("话语线索", guest.speechClues);
-
-  elements.guestCard.append(cameraLabel, name, request, details, traits, speech);
+  elements.guestCard.append(scene, dossier);
   renderRules();
+  playSound("doorbell");
 }
 
-function buildDefinitionList(title, rows) {
+function buildVisitorScene(guest) {
+  const visual = guest.visual ?? {};
+  const scene = document.createElement("section");
+  scene.className = `visitor-scene scene-${visual.scene ?? "frontdesk"} threat-${visual.threat ?? guest.type}`;
+
+  const cameraHud = document.createElement("div");
+  cameraHud.className = "camera-hud";
+  cameraHud.innerHTML = `
+    <span>LOBBY CAM / ${guest.arrivalTime}</span>
+    <span>ROOM ${guest.room}</span>
+    <span>REC</span>
+  `;
+
+  const set = document.createElement("div");
+  set.className = "motel-set";
+  set.innerHTML = `
+    <span class="set-light"></span>
+    <span class="set-door set-door-left"></span>
+    <span class="set-door set-door-right"></span>
+    <span class="set-counter"></span>
+    <span class="set-rates">NIGHT DESK<br>NO VACANCY</span>
+  `;
+
+  const figure = document.createElement("div");
+  figure.className = `visitor-figure ${visual.silhouette ?? "visitor-average"} ${getInspectionClasses(guest)}`;
+  figure.setAttribute("aria-label", `${guest.name} 的监控画面`);
+
+  if (visual.portrait) {
+    const image = document.createElement("img");
+    image.src = visual.portrait;
+    image.alt = guest.name;
+    figure.append(image);
+  } else {
+    figure.innerHTML = `
+      <span class="figure-shadow"></span>
+      <span class="figure-body"></span>
+      <span class="figure-head"></span>
+      <span class="figure-eye figure-eye-left"></span>
+      <span class="figure-eye figure-eye-right"></span>
+      <span class="figure-mouth"></span>
+      <span class="figure-hand figure-hand-left"></span>
+      <span class="figure-hand figure-hand-right"></span>
+    `;
+  }
+
+  (guest.inspection ?? []).forEach((item) => {
+    const marker = document.createElement("span");
+    marker.className = `organ-marker marker-${item.part} severity-${item.severity}`;
+    marker.title = `${item.label}: ${item.value}`;
+    marker.textContent = item.label.slice(0, 1);
+    figure.append(marker);
+  });
+
+  const dialogue = document.createElement("div");
+  dialogue.className = "dialogue-box";
+  dialogue.innerHTML = `
+    <p class="speaker-name">${guest.name}</p>
+    <p>${guest.request}</p>
+  `;
+
+  scene.append(cameraHud, set, figure, dialogue);
+  return scene;
+}
+
+function getInspectionClasses(guest) {
+  return (guest.inspection ?? [])
+    .filter((item) => item.severity >= 2)
+    .map((item) => `has-${item.part}`)
+    .join(" ");
+}
+
+function buildDefinitionList(title, rows, className = "") {
   const section = document.createElement("section");
-  section.className = "guest-section";
+  section.className = `guest-section ${className}`.trim();
 
   const heading = document.createElement("h3");
   heading.textContent = title;
@@ -146,9 +222,9 @@ function buildDefinitionList(title, rows) {
   return section;
 }
 
-function buildListSection(title, rows) {
+function buildListSection(title, rows, className = "") {
   const section = document.createElement("section");
-  section.className = "guest-section";
+  section.className = `guest-section ${className}`.trim();
 
   const heading = document.createElement("h3");
   heading.textContent = title;
@@ -157,6 +233,30 @@ function buildListSection(title, rows) {
   rows.forEach((row) => {
     const item = document.createElement("li");
     item.textContent = row;
+    list.append(item);
+  });
+
+  section.append(heading, list);
+  return section;
+}
+
+function buildInspectionPanel(rows) {
+  const section = document.createElement("section");
+  section.className = "guest-section inspection-panel";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "器官 / 异常检查";
+
+  const list = document.createElement("ul");
+  rows.forEach((row) => {
+    const item = document.createElement("li");
+    const severity = Number(row.severity ?? 0);
+    item.className = `inspection-item severity-${severity}`;
+    item.innerHTML = `
+      <span class="inspection-part">${row.label ?? "特征"}</span>
+      <span class="inspection-value">${row.value ?? row}</span>
+      <span class="inspection-meter" aria-label="异常程度 ${severity} / 3">${"■".repeat(severity)}${"□".repeat(3 - severity)}</span>
+    `;
     list.append(item);
   });
 
@@ -175,6 +275,9 @@ function updateScore() {
 }
 
 function beginShift() {
+  unlockAudio();
+  playSound("button");
+  startRainLoop();
   state.currentIndex = 0;
   state.correctCount = 0;
   state.locked = false;
@@ -201,6 +304,7 @@ function decide(decision) {
     return;
   }
 
+  playSound("button");
   const guest = getCurrentGuest();
   const isCorrect = guest.correctDecision === decision;
   const effects = getDecisionEffects(guest, decision, isCorrect);
@@ -213,6 +317,9 @@ function decide(decision) {
 
   elements.feedback.textContent = `${isCorrect ? "判断正确。" : "判断失误。"} ${text} ${formatEffects(effects)}`;
   elements.feedback.className = `feedback ${isCorrect ? "is-correct" : "is-wrong"}`;
+  if (shouldPlayAnomaly(guest, decision, isCorrect)) {
+    playSound("anomaly");
+  }
   updateScore();
   renderStats();
   setDecisionButtonsEnabled(false);
@@ -300,6 +407,7 @@ function showNextGuest() {
 }
 
 function finishShift() {
+  stopRainLoop();
   const ending = endings.find(matchesEnding) ?? endings.at(-1);
   elements.progressLabel.textContent = "值班结束 / 06:00";
   elements.clockLabel.textContent = "06:00";
@@ -355,3 +463,69 @@ elements.restartButton.addEventListener("click", beginShift);
 renderRules();
 renderStats();
 updateScore();
+
+function createAudio(src, volume, loop = false) {
+  const track = new Audio(src);
+  track.preload = "auto";
+  track.volume = volume;
+  track.loop = loop;
+  return track;
+}
+
+function unlockAudio() {
+  if (audio.unlocked) {
+    return;
+  }
+
+  audio.unlocked = true;
+  Object.values(audio.tracks).forEach((track) => {
+    track.load();
+  });
+}
+
+function playSound(name) {
+  if (!audio.unlocked) {
+    return;
+  }
+
+  const track = audio.tracks[name];
+  if (!track) {
+    console.warn(`Audio track not found: ${name}`);
+    return;
+  }
+
+  track.currentTime = 0;
+  track.play().catch((error) => {
+    console.warn(`Audio playback failed: ${name}`, error);
+  });
+}
+
+function startRainLoop() {
+  const rain = audio.tracks.rain;
+  if (!rain || !audio.unlocked) {
+    return;
+  }
+
+  rain.currentTime = 0;
+  rain.play().catch((error) => {
+    console.warn("Audio playback failed: rain", error);
+  });
+}
+
+function stopRainLoop() {
+  const rain = audio.tracks.rain;
+  if (!rain) {
+    return;
+  }
+
+  rain.pause();
+  rain.currentTime = 0;
+}
+
+function shouldPlayAnomaly(guest, decision, isCorrect) {
+  if (!isCorrect && guest.type !== "normal") {
+    return true;
+  }
+
+  return guest.type === "danger" && ["allow", "police"].includes(decision);
+}
