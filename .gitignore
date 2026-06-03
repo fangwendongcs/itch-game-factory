@@ -9,6 +9,7 @@
 # Local editor and temporary files
 .idea/
 .vscode/
+.playwright-cli/
 *.log
 *.tmp
 *.swp

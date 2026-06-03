@@ -17,16 +17,39 @@
         </div>
         <div class="shift-clock" aria-label="当前值班时间">
           <span>夜班</span>
-          <strong>00:17</strong>
+          <strong id="clock-label">00:17</strong>
         </div>
       </header>
+
+      <section class="status-strip" aria-label="值班状态">
+        <div class="stat-card">
+          <span>Money</span>
+          <strong id="money-label">$80</strong>
+        </div>
+        <div class="stat-card">
+          <span>Complaints</span>
+          <strong id="complaints-label">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Corruption</span>
+          <strong id="corruption-label">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Sanity</span>
+          <strong id="sanity-label">100</strong>
+        </div>
+        <div class="stat-card">
+          <span>Boss Trust</span>
+          <strong id="boss-trust-label">60</strong>
+        </div>
+      </section>
 
       <section class="desk-grid" aria-label="夜班前台">
         <aside class="panel memo-panel">
           <p class="eyebrow">FRONT DESK MEMO</p>
-          <h2>今晚的入住规则</h2>
+          <h2 id="night-title">今晚的入住规则</h2>
           <ol id="rule-list"></ol>
-          <p class="memo-note">不要追问规则来源。只需执行。</p>
+          <p id="memo-note" class="memo-note">不要追问规则来源。只需执行。</p>
         </aside>
 
         <section class="panel guest-panel">
@@ -45,9 +68,11 @@
           <p id="feedback" class="feedback" aria-live="polite"></p>
 
           <div class="actions">
-            <button id="reject-button" class="button button-reject" type="button" disabled>拒绝入住</button>
+            <button id="allow-button" class="button button-allow" type="button" disabled>Allow Check-in</button>
+            <button id="reject-button" class="button button-reject" type="button" disabled>Refuse</button>
+            <button id="police-button" class="button button-police" type="button" disabled>Call Police</button>
+            <button id="error-button" class="button button-error" type="button" disabled>System Error</button>
             <button id="start-button" class="button button-start" type="button">开始夜班</button>
-            <button id="approve-button" class="button button-approve" type="button" disabled>允许入住</button>
           </div>
         </section>
       </section>
@@ -56,6 +81,7 @@
         <p class="eyebrow">SHIFT REPORT / 06:00</p>
         <h2 id="ending-title"></h2>
         <p id="ending-description"></p>
+        <div id="ending-summary" class="ending-summary"></div>
         <button id="restart-button" class="button button-start" type="button">重新值班</button>
       </section>
     </main>
