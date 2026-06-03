@@ -155,7 +155,7 @@ function buildVisitorScene(guest) {
   `;
 
   const figure = document.createElement("div");
-  figure.className = `visitor-figure ${visual.silhouette ?? "visitor-average"} ${getInspectionClasses(guest)}`;
+  figure.className = `visitor-figure ${visual.silhouette ?? "visitor-average"} ${visual.portrait ? "has-portrait" : ""} ${getInspectionClasses(guest)}`;
   figure.setAttribute("aria-label", `${guest.name} 的监控画面`);
 
   if (visual.portrait) {

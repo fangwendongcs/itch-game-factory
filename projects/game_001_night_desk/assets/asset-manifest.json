@@ -6,7 +6,14 @@
     "moodboardUi": "./assets/concepts/concept-04-moodboard-ui.png"
   },
   "backgrounds": {},
-  "portraits": {},
+  "portraits": {
+    "quietWoman": "./assets/portraits/visitor-quiet-woman.png",
+    "hollowEyes": "./assets/portraits/visitor-hollow-eyes.png",
+    "softSmile": "./assets/portraits/visitor-soft-smile.png",
+    "heavySmile": "./assets/portraits/visitor-heavy-smile.png",
+    "wideGrin": "./assets/portraits/visitor-wide-grin.png",
+    "hoodChild": "./assets/portraits/visitor-hood-child.png"
+  },
   "textures": {},
   "ui": {},
   "audio": {

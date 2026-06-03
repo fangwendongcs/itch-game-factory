@@ -33,5 +33,5 @@ http://localhost:8000/projects/game_001_night_desk/
 - 不把本游戏剧情反写到 `templates/`。
 - 不在 `releases/` 放开发过程文件。
 - 不使用外部依赖。
-- 当前已加入极简 favicon、四类低成本音效、concept 参考图和 CSS 生成的场景/人物剪影。
+- 当前已加入极简 favicon、四类低成本音效、concept 参考图、6 张客人 portrait 和 CSS 生成的备用人物剪影。
 - concept 图只作为风格参考，正式 UI 保持 HTML/CSS/JS 分层，方便后续替换独立人物立绘和背景图。

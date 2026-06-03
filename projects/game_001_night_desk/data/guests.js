@@ -15,7 +15,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["眼睛会眨", "影子贴合脚边", "手心有雨水"],
     speechClues: ["能说出预订尾号 0317", "没有主动询问楼层布局"],
-    visual: { scene: "frontdesk", silhouette: "visitor-slim", threat: "normal" },
+    visual: { scene: "frontdesk", silhouette: "visitor-slim", threat: "normal", portrait: "./assets/portraits/visitor-quiet-woman.png" },
     inspection: [
       { part: "eyes", label: "眼睛", value: "眨眼自然，视线先看前台再看房卡", severity: 0 },
       { part: "hands", label: "手", value: "掌心湿冷，有真实雨水痕迹", severity: 0 },
@@ -73,7 +73,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["雨伞没有滴水", "右手一直藏在袖口", "监控画面中脸部过曝"],
     speechClues: ["说不出男朋友姓名", "反复强调“他在房里等我”"],
-    visual: { scene: "frontdesk", silhouette: "visitor-umbrella", threat: "anomaly" },
+    visual: { scene: "frontdesk", silhouette: "visitor-umbrella", threat: "anomaly", portrait: "./assets/portraits/visitor-hollow-eyes.png" },
     inspection: [
       { part: "face", label: "脸", value: "监控中脸部过曝，肉眼却很暗", severity: 2 },
       { part: "hands", label: "右手", value: "一直藏在袖口，袖口内侧有抓门声", severity: 2 },
@@ -160,7 +160,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["衣服干净得不像刚进雨夜", "手机屏幕没有亮起", "能准确叫出老板姓氏"],
     speechClues: ["拒绝重新刷卡", "要求你离开前台去开门"],
-    visual: { scene: "frontdesk", silhouette: "visitor-elegant", threat: "uncertain" },
+    visual: { scene: "frontdesk", silhouette: "visitor-elegant", threat: "uncertain", portrait: "./assets/portraits/visitor-heavy-smile.png" },
     inspection: [
       { part: "eyes", label: "眼睛", value: "瞳孔反光里有你身后的门", severity: 1 },
       { part: "hands", label: "手机", value: "屏幕不亮，却能显示支付失败", severity: 2 },
@@ -218,7 +218,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["手里拿着一台正在播放的录音机", "脖子上有旧式房卡绳", "每次眨眼都少一帧"],
     speechClues: ["同一句话重复超过三次", "声音从录音机而不是嘴里传出"],
-    visual: { scene: "frontdesk", silhouette: "visitor-recorder", threat: "danger" },
+    visual: { scene: "frontdesk", silhouette: "visitor-recorder", threat: "danger", portrait: "./assets/portraits/visitor-wide-grin.png" },
     inspection: [
       { part: "eyes", label: "眼睛", value: "每次眨眼，监控丢失一帧", severity: 3 },
       { part: "mouth", label: "嘴", value: "嘴唇不动，声音从录音机传出", severity: 3 },
@@ -305,7 +305,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["穿着与第一夜完全相同", "雨水从下往上流回伞面", "笑容停留过久"],
     speechClues: ["知道第一夜你说过的话", "反复问你是否还记得她"],
-    visual: { scene: "frontdesk", silhouette: "visitor-slim duplicate", threat: "danger" },
+    visual: { scene: "frontdesk", silhouette: "visitor-slim duplicate", threat: "danger", portrait: "./assets/portraits/visitor-soft-smile.png" },
     inspection: [
       { part: "eyes", label: "眼睛", value: "瞳孔里映出第一夜的前台画面", severity: 3 },
       { part: "mouth", label: "嘴", value: "笑容停留过久，像暂停帧", severity: 2 },
@@ -421,7 +421,7 @@ window.NIGHT_DESK_GUESTS = [
     ],
     traits: ["声音与你完全相同", "工牌照片正在变成你的脸", "门外的人没有敲门却传来敲门声"],
     speechClues: ["知道你本轮所有错误", "要求你打开前台内侧门"],
-    visual: { scene: "frontdesk", silhouette: "visitor-you", threat: "danger" },
+    visual: { scene: "frontdesk", silhouette: "visitor-you", threat: "danger", portrait: "./assets/portraits/visitor-hood-child.png" },
     inspection: [
       { part: "voice", label: "声音", value: "与你完全相同，连犹豫都一样", severity: 3 },
       { part: "badge", label: "工牌", value: "照片正在变成你的脸", severity: 3 },

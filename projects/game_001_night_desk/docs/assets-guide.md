@@ -31,6 +31,21 @@ environment scene
 -> action buttons
 ```
 
+## Current Portraits
+
+The first imported portrait batch lives in `assets/portraits/`:
+
+- `visitor-quiet-woman.png`
+- `visitor-hollow-eyes.png`
+- `visitor-soft-smile.png`
+- `visitor-heavy-smile.png`
+- `visitor-wide-grin.png`
+- `visitor-hood-child.png`
+
+These are currently mapped to selected guests through `visual.portrait` in `data/guests.js`.
+
+Note: this batch uses baked checkerboard backgrounds rather than true transparency. The UI darkens and blends them into the CCTV scene as an MVP workaround. For final art, prefer true transparent `.png` or `.webp` portraits.
+
 ## Naming Rules
 
 Use lowercase English and hyphens. Avoid spaces and Chinese filenames in production assets.
