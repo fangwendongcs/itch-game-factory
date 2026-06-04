@@ -21,6 +21,7 @@ const elements = {
   clockLabel: document.querySelector("#clock-label"),
   nightTitle: document.querySelector("#night-title"),
   memoNote: document.querySelector("#memo-note"),
+  broadcastPanel: document.querySelector("#broadcast-panel"),
   sidebarDossier: document.querySelector("#sidebar-dossier"),
   moneyLabel: document.querySelector("#money-label"),
   complaintsLabel: document.querySelector("#complaints-label"),
@@ -82,6 +83,10 @@ function renderRules() {
   const currentNight = getNightForGuest();
   elements.nightTitle.textContent = currentNight?.title ?? "今晚的入住规则";
   elements.memoNote.textContent = currentNight?.memo ?? "不要追问规则来源。只需执行。";
+  elements.broadcastPanel.innerHTML = `
+    <p class="eyebrow">NIGHT BROADCAST</p>
+    <p>${currentNight?.broadcast ?? "旧收音机尚未开始播报。"}</p>
+  `;
 
   const rules = currentNight?.rules ?? [];
   elements.ruleList.replaceChildren(

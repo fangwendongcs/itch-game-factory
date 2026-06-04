@@ -5,7 +5,14 @@
     "hallwayVisitor": "./assets/concepts/concept-03-hallway-visitor.png",
     "moodboardUi": "./assets/concepts/concept-04-moodboard-ui.png"
   },
-  "backgrounds": {},
+  "backgrounds": {
+    "frontdeskNight": "./assets/backgrounds/motel-frontdesk-night.webp",
+    "hallwayVoid": "./assets/backgrounds/motel-hallway-void.webp",
+    "roomNight": "./assets/backgrounds/motel-room-night.webp",
+    "bathroomMirror": "./assets/backgrounds/motel-bathroom-mirror.webp",
+    "exteriorRain": "./assets/backgrounds/motel-exterior-rain.webp",
+    "vendingCorner": "./assets/backgrounds/motel-vending-corner.webp"
+  },
   "portraits": {
     "quietWoman": "./assets/portraits/visitor-quiet-woman.png",
     "hollowEyes": "./assets/portraits/visitor-hollow-eyes.png",

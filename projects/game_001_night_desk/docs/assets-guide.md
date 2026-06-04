@@ -24,15 +24,16 @@ The game UI should remain layered:
 
 ```text
 environment scene
+-> WebP background / future image background
 -> visitor portrait / generated silhouette
 -> organ anomaly markers
 -> dialogue box
--> compact left-side registry, rule, stat, and action panels
+-> compact left-side registry, broadcast, rule, stat, and action panels
 ```
 
 ## Current Portraits
 
-The imported portrait batches currently cover all 15 MVP visitors and live in `assets/portraits/`:
+The imported portrait batches currently cover all 15 MVP visitors and live in `assets/portraits/`. They have been resized to about 760px high to keep the browser build lighter for itch.io:
 
 - `visitor-quiet-woman.png`
 - `visitor-hollow-eyes.png`
@@ -52,7 +53,20 @@ The imported portrait batches currently cover all 15 MVP visitors and live in `a
 
 These are currently mapped to guests through `visual.portrait` in `data/guests.js`.
 
-Note: this batch uses baked checkerboard backgrounds rather than true transparency. The UI darkens and blends them into the CCTV scene as an MVP workaround. For final art, prefer true transparent `.png` or `.webp` portraits.
+Note: the original generated batch used baked checkerboard backgrounds. The current portrait files are saved as RGBA PNGs and the visible checkerboard has been removed where the background was separable. The runtime CSS avoids `mix-blend-mode: multiply` on portraits, because multiply blending made alpha portraits look transparent and muddy against the scene backgrounds.
+
+## Current Backgrounds
+
+The current MVP uses six WebP backgrounds derived from the provided background asset batch:
+
+- `assets/backgrounds/motel-frontdesk-night.webp`
+- `assets/backgrounds/motel-hallway-void.webp`
+- `assets/backgrounds/motel-room-night.webp`
+- `assets/backgrounds/motel-bathroom-mirror.webp`
+- `assets/backgrounds/motel-exterior-rain.webp`
+- `assets/backgrounds/motel-vending-corner.webp`
+
+These are production runtime assets, not concept-only references. The front desk and hallway images are currently wired into gameplay scenes; the others are available for future event scenes or ending screens.
 
 ## Naming Rules
 
